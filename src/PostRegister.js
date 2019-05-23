@@ -30,6 +30,7 @@ class PostRegister extends Component{
         console.log(data);
 
         let response = postRegister(data);
+        console.log(response);
     }
 
     handleInputChange = (event) => {
