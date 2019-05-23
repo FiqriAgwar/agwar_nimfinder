@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NIMFinder/static/css/main.7c865428.chunk.css",
+    "main.js": "/NIMFinder/static/js/main.85d24f10.chunk.js",
+    "main.js.map": "/NIMFinder/static/js/main.85d24f10.chunk.js.map",
+    "runtime~main.js": "/NIMFinder/static/js/runtime~main.ddfd1cfe.js",
+    "runtime~main.js.map": "/NIMFinder/static/js/runtime~main.ddfd1cfe.js.map",
+    "static/js/2.ad18dda1.chunk.js": "/NIMFinder/static/js/2.ad18dda1.chunk.js",
+    "static/js/2.ad18dda1.chunk.js.map": "/NIMFinder/static/js/2.ad18dda1.chunk.js.map",
+    "index.html": "/NIMFinder/index.html",
+    "precache-manifest.206a43c308dd2c54dc17cef90e4cfdac.js": "/NIMFinder/precache-manifest.206a43c308dd2c54dc17cef90e4cfdac.js",
+    "service-worker.js": "/NIMFinder/service-worker.js",
+    "static/css/main.7c865428.chunk.css.map": "/NIMFinder/static/css/main.7c865428.chunk.css.map"
+  }
+}
