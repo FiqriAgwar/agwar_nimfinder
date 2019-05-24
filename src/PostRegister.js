@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 async function postRegister(params){
     try{
-        let response = await fetch('https://api.stya.net/nim/register', {
+        let response = await fetch('https://cors-anywhere.herokuapp.com/https://api.stya.net/nim/register', {
             method : 'POST',
             body : JSON.stringify(params),
         });
