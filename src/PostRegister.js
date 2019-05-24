@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 async function postRegister(params){
     try{
-        let response = await fetch('https://cors-anywhere.herokuapp.com/https://api.stya.net/nim/register', {
+        let response = await fetch('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', {
             method : 'POST',
             body : JSON.stringify(params),
         });
@@ -29,7 +29,7 @@ class PostRegister extends Component{
         console.log(data);
 
         let response = postRegister(data);
-        console.log(response);
+        alert(response);
     }
 
     handleInputChange = (event) => {
