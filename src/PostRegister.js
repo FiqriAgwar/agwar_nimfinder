@@ -7,8 +7,7 @@ async function postRegister(params){
             body : JSON.stringify(params),
         });
 
-        let responseJSON = await response.json();
-        return responseJSON.result;
+        return response;
     }
     catch(error){
         console.error(error);
