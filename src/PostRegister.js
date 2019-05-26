@@ -7,7 +7,7 @@ async function postRegister(params){
             body : JSON.stringify(params),
         });
 
-        return response;
+        return response.json();
     }
     catch(error){
         console.error(error);
@@ -59,7 +59,7 @@ class PostRegister extends Component{
                     </p>
 
                     <p>
-                        <button>Register</button>
+                        <button onClick={this.handleSubmit}>Register</button>
                     </p>
                 </form>
             </div>
