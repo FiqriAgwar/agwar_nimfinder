@@ -1,24 +1,5 @@
 import React, {Component} from 'react';
 
-async function postRegister(params){
-    var request = require('postman-request');
-    
-    try{
-        console.log(JSON.stringify(params));
-        request.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register')
-            .form(
-                {
-                    username : params.username,
-                    password : params.password
-                }
-            )
-
-    }
-    catch(error){
-        console.error(error);
-    }
-}
-
 class PostRegister extends Component{
     constructor(props){
         super(props);
@@ -33,7 +14,14 @@ class PostRegister extends Component{
         const data = this.state; 
         console.log(data.username + " " + data.password);
 
-        let response = postRegister(data);
+        var request = require('postman-request');
+        let response = request.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register').form(
+            {
+                username : data.username,
+                password : data.password
+            }
+        )
+
         console.log(response);
     }
 
