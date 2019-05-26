@@ -7,7 +7,8 @@ async function postRegister(params){
             body : JSON.stringify(params),
         });
 
-        return response.json();
+        let responseJSON = await response.json();
+        return responseJSON;
     }
     catch(error){
         console.error(error);
@@ -29,6 +30,7 @@ class PostRegister extends Component{
         console.log(data);
 
         let response = postRegister(data);
+        console.log(response);
         alert(response);
     }
 
