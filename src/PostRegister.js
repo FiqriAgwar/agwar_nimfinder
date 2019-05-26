@@ -62,7 +62,7 @@ class PostRegister extends Component{
                     </p>
 
                     <p>
-                        <button>Register</button>
+                        <button onClick={this.handleSubmit}>Register</button>
                     </p>
                 </form>
             </div>
