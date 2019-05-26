@@ -1,4 +1,19 @@
-import React, {Component} from 'react'; 
+import React, {Component} from 'react';
+
+async function postRegister(params){
+    try{
+        console.log(JSON.stringify(params));
+        let response = await fetch('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', {
+            method : 'POST',
+            body : JSON.stringify(params),
+        });
+
+        return response;
+    }
+    catch(error){
+        console.error(error);
+    }
+}
 
 class PostRegister extends Component{
     constructor(props){
@@ -9,29 +24,13 @@ class PostRegister extends Component{
         }
     }
 
-    postRegister = function (params){
-        try{
-            let response = fetch('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', {
-                method : 'POST',
-                body : JSON.stringify(params),
-            });
-    
-            //let responseJSON = response.json().stringify;
-            return response;
-        }
-        catch(error){
-            console.error(error);
-        }
-    }
-
     handleSubmit = (event) => {
         event.preventDefault();
         const data = this.state; 
-        console.log(data);
+        console.log(data.username + " " + data.password);
 
-        let response = this.postRegister(data);
-        console.log(response);
-        alert(response.stringify);
+        let response = postRegister(data);
+        alert(response);
     }
 
     handleInputChange = (event) => {
@@ -61,7 +60,7 @@ class PostRegister extends Component{
                     </p>
 
                     <p>
-                        <button onClick={this.handleSubmit}>Register</button>
+                        <button>Register</button>
                     </p>
                 </form>
             </div>
