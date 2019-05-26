@@ -10,7 +10,7 @@ async function postRegister(params){
             }
         });
 
-        return response;
+        return response.json();
     }
     catch(error){
         console.error(error);
