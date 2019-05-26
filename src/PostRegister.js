@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 
 async function postRegister(params){
     try{
-        console.log(JSON.stringify(params));
         let response = await fetch('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', {
             method : 'POST',
-            body : JSON.stringify(params),
+            body : {
+                "username" : params.username,
+                "password" : params.password
+            }
         });
 
         return response;
@@ -30,7 +32,7 @@ class PostRegister extends Component{
         console.log(data.username + " " + data.password);
 
         let response = postRegister(data);
-        alert(response);
+        console.log(response);
     }
 
     handleInputChange = (event) => {
