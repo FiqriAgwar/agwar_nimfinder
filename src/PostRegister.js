@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 
 async function postRegister(params){
+    var request = require('postman-request');
+    
     try{
-        let response = await fetch('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', {
-            method : 'POST',
-            body : {
-                "username" : params.username,
-                "password" : params.password
-            }
-        });
+        console.log(JSON.stringify(params));
+        request.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register')
+            .form(
+                {
+                    username : params.username,
+                    password : params.password
+                }
+            )
 
-        return response.json();
     }
     catch(error){
         console.error(error);
