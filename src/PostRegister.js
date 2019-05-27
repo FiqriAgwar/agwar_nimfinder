@@ -8,9 +8,9 @@ class PostRegister extends Component{
         this.state = {
             username : '',
             password : '',
+            code : '',
+            message : ''
         }
-
-        this.message = '';
     }
 
     handleSubmit = (event) => {
@@ -32,7 +32,12 @@ class PostRegister extends Component{
         axios.post(url, data, headers)
             .then(response => {
                 console.log(response.data.code);
-                this.message = response.data.status;
+                this.setState(
+                    {
+                        message : response.data.message,
+                        code : response.data.code
+                    }
+                );
             })
             .catch(error => {
                 console.log(error)
