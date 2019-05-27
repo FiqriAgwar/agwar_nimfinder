@@ -23,8 +23,6 @@ class PostRegister extends Component{
             .catch(error => {
                 console.log(error)
             })
-
-        console.log(response);
     }
 
     handleInputChange = (event) => {
