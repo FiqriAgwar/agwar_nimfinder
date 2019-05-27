@@ -78,7 +78,7 @@ class PostRegister extends Component{
                     </br>
 
                     <p>
-                        {this.message}
+                        {this.state.message}
                     </p>
                 </form>
             </div>
