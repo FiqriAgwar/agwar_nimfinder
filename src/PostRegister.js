@@ -31,7 +31,7 @@ class PostRegister extends Component{
 
         axios.post(url, data, headers)
             .then(response => {
-                console.log(response)
+                console.log(response.data.code);
                 this.message = response.data.status;
             })
             .catch(error => {
