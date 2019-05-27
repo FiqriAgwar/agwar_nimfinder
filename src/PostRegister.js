@@ -7,8 +7,9 @@ class PostRegister extends Component{
         this.state = {
             username : '',
             password : '',
-            message : ''
         }
+
+        this.message = '';
     }
 
     handleSubmit = (event) => {
@@ -19,6 +20,7 @@ class PostRegister extends Component{
         axios.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', data)
             .then(response => {
                 console.log(response)
+                this.message = response.statusText;
             })
             .catch(error => {
                 console.log(error)
@@ -59,7 +61,7 @@ class PostRegister extends Component{
                     </br>
 
                     <p>
-                        {this.state.message}
+                        {this.message}
                     </p>
                 </form>
             </div>
