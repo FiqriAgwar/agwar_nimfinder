@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/agwar_nimfinder/precache-manifest.0013e4f759ca5b7923df08d2e1ee4e87.js"
+  "/agwar_nimfinder/precache-manifest.cc78578c33c70915a3a8a4545ee848a0.js"
 );
 
 self.addEventListener('message', (event) => {
