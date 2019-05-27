@@ -14,13 +14,25 @@ class PostRegister extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const data = this.state; 
+
+        const url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register';
+
+        const data = {
+            "username" : this.state.username,
+            "password" : this.state.password
+        }
         console.log(data);
 
-        axios.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', data)
+        const config = {
+            headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded'
+            }
+        }
+
+        axios.post(url, data)
             .then(response => {
                 console.log(response)
-                this.message = response.statusText;
+                this.message = response.data.status;
             })
             .catch(error => {
                 console.log(error)
