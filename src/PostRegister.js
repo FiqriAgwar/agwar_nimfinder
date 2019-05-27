@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import qs from 'qs';
 
 class PostRegister extends Component{
     constructor(props){
@@ -17,19 +18,18 @@ class PostRegister extends Component{
 
         const url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register';
 
-        const data = {
-            "username" : this.state.username,
-            "password" : this.state.password
-        }
+        const data = qs.stringify({
+            username : this.state.username,
+            password : this.state.password
+        });
+
         console.log(data);
 
-        const config = {
-            headers : {
-                'Content-Type' : 'application/x-www-form-urlencoded'
-            }
+        const headers = {
+            'Content-Type' : 'application/x-www-form-urlencoded'
         }
 
-        axios.post(url, data)
+        axios.post(url, data, headers)
             .then(response => {
                 console.log(response)
                 this.message = response.data.status;
