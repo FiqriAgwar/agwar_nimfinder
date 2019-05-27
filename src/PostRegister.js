@@ -34,7 +34,7 @@ class PostRegister extends Component{
                 console.log(response.data.code);
                 this.setState(
                     {
-                        message : response.data.message,
+                        message : response.data.status,
                         code : response.data.code
                     }
                 );
