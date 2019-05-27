@@ -1,26 +1,28 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class PostRegister extends Component{
     constructor(props){
         super(props);
         this.state = {
             username : '',
-            password : ''
+            password : '',
+            message : ''
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         const data = this.state; 
-        console.log(data.username + " " + data.password);
+        console.log(data);
 
-        var request = require('postman-request');
-        let response = request.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register').form(
-            {
-                username : data.username,
-                password : data.password
-            }
-        )
+        axios.post('https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register', data)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
         console.log(response);
     }
@@ -53,6 +55,13 @@ class PostRegister extends Component{
 
                     <p>
                         <button onClick={this.handleSubmit}>Register</button>
+                    </p>
+
+                    <br>
+                    </br>
+
+                    <p>
+                        {this.state.message}
                     </p>
                 </form>
             </div>
