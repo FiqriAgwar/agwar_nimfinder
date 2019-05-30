@@ -1,25 +1,62 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 class GetData extends Component {
     constructor(props){
       super(props);
       this.state = {
         items : [],
-        load : false,
+        load : true,
         query : "",
-        token : props.token
+        size : 0,
+        page : 0,
+        token : props.token,
+        codename : -1,
+        codeid : -1
       }
     }
-  
-    componentDidMount(){
-      fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
-        .then(resjson => {
-          this.setState({
-            load : true,
-            items : resjson,
-          })
-        });
+
+    checkNumber(input){
+      return (input == "1" || input == "2" || input == "3" || input == "4" || input == "5" || input == "6" || input == "7" || input == "8" || input == "9" || input == "0");
+    }
+
+    handleSubmit = (event) => {
+      event.preventDefault();
+      this.state.load = false;
+
+      let url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/'
+
+      if(checkNumber(this.state.query[0])){
+        url += 'byid?query=' + this.state.query 
+      }
+      else{
+        url += 'byname?name=' + this.state.query
+      }
+
+      if(size > 0){
+        url += '&count=' + this.state.size
+      }
+
+      if(page > 0){
+        url += '&page=' + this.state.page
+      }
+
+      const header = {
+        'Cookie' : 'token=' + this.state.token
+      }
+
+      axios.get(url, header)
+        .then(result => {
+            if(result.code >= 0){
+              this.setState(
+                {
+                  items : result.payload,
+                  load : true
+                }
+              )
+            }
+          }
+        )
     }
   
     updateQuery(event){
@@ -29,16 +66,14 @@ class GetData extends Component {
     render(){
       var {load, items, query} = this.state;
   
-      var filtered = items.filter(
-        (item) => {
-          return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-        }
-      )
-  
       if(!load){
         return (
-          <div className="queryStyle">
-            Loading Data...
+          <div className="titlesec">
+            <h1>NIM Finder</h1>
+
+            <div className="queryStyle">
+              Loading Data...
+            </div>
           </div>
         );
       }
@@ -49,18 +84,22 @@ class GetData extends Component {
   
             <div className="search">
               <input type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+              <button onClick={this.handleSubmit}>Search</button>
             </div>
-  
-            <br></br>
-  
-            <div className="queryStyle">  
-              <ol style={{ listStyleType : "decimal"}}>
-                {filtered.map(item => (
-                  <li key={item.id}>
-                    {item.name} => {item.username}
-                  </li>
-                ))};
-              </ol>
+
+            <div className="queryStyle">
+              <table>
+                <tr>
+                  {this.state.items.map(data => (
+                    <div>
+                      <td key={data.nim_jur}>{data.name}</td>
+                      <td key={data.nim_jur}>{data.nim_tpb}</td>
+                      <td key={data.nim_jur}>{data.nim_jur}</td>
+                      <td key={data.nim_jur}>{data.prodi}</td>
+                    </div>
+                  ))}
+                </tr>
+              </table>
             </div>
           </div>
         );
