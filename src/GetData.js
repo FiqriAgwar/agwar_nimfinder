@@ -26,18 +26,18 @@ class GetData extends Component {
 
       let url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/'
 
-      if(checkNumber(this.state.query[0])){
+      if(this.checkNumber(this.state.query[0])){
         url += 'byid?query=' + this.state.query 
       }
       else{
         url += 'byname?name=' + this.state.query
       }
 
-      if(size > 0){
+      if(this.state.size > 0){
         url += '&count=' + this.state.size
       }
 
-      if(page > 0){
+      if(this.state.page > 0){
         url += '&page=' + this.state.page
       }
 
