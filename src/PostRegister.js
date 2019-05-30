@@ -16,6 +16,8 @@ class PostRegister extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
 
+        this.state.message = 'Loading...';
+
         const url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register';
 
         const data = qs.stringify({
@@ -23,15 +25,12 @@ class PostRegister extends Component{
             password : this.state.password
         });
 
-        console.log(data);
-
         const headers = {
             'Content-Type' : 'application/x-www-form-urlencoded'
         }
 
         axios.post(url, data, headers)
             .then(response => {
-                console.log(response.data.code);
                 this.setState(
                     {
                         message : response.data.status,

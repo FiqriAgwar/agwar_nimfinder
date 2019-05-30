@@ -7,6 +7,7 @@ class GetData extends Component {
         items : [],
         load : false,
         query : "",
+        token : props.token
       }
     }
   
