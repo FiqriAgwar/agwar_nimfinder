@@ -11,7 +11,7 @@ class GetData extends Component {
         query : "",
         size : 0,
         page : 0,
-        token : 'token=' + this.props.token,
+        token : this.props.token,
         code : 0,
         message : ''
       }
@@ -46,20 +46,16 @@ class GetData extends Component {
         url += '&page=' + this.state.page
       }
 
+      console.log(document.cookie)
+
       const config = {
         headers : {
-          'content-Type' : 'application/json',
-          'Access-Control-Allow-Origin' : true,
-          "Accept" : "/",
-          "Cache-Control" : "no-cache",
-          Cookie : document.cookie
-        },
+          'Auth-Token' : this.state.token
+        }
       };
 
-      console.log(url)
-
       axios.get(url, config)
-      .then(result => {
+      .then(result => { 
         console.log(result.data);
         this.setState({
           message : result.data.status,
