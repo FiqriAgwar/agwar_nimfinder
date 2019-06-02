@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/agwar_nimfinder/static/css/main.7c865428.chunk.css",
-    "main.js": "/agwar_nimfinder/static/js/main.fd9d92bf.chunk.js",
-    "main.js.map": "/agwar_nimfinder/static/js/main.fd9d92bf.chunk.js.map",
+    "main.js": "/agwar_nimfinder/static/js/main.d55475ec.chunk.js",
+    "main.js.map": "/agwar_nimfinder/static/js/main.d55475ec.chunk.js.map",
     "runtime~main.js": "/agwar_nimfinder/static/js/runtime~main.9f4e6d1f.js",
     "runtime~main.js.map": "/agwar_nimfinder/static/js/runtime~main.9f4e6d1f.js.map",
     "static/js/2.fad38377.chunk.js": "/agwar_nimfinder/static/js/2.fad38377.chunk.js",
     "static/js/2.fad38377.chunk.js.map": "/agwar_nimfinder/static/js/2.fad38377.chunk.js.map",
     "index.html": "/agwar_nimfinder/index.html",
-    "precache-manifest.d9f66332f2f92588aa0baf27fd20c677.js": "/agwar_nimfinder/precache-manifest.d9f66332f2f92588aa0baf27fd20c677.js",
+    "precache-manifest.02e40338aebee30855d36dc37b519862.js": "/agwar_nimfinder/precache-manifest.02e40338aebee30855d36dc37b519862.js",
     "service-worker.js": "/agwar_nimfinder/service-worker.js",
     "static/css/main.7c865428.chunk.css.map": "/agwar_nimfinder/static/css/main.7c865428.chunk.css.map"
   }
