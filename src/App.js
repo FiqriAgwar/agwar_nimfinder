@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
 
-import GetData from './GetData'
 import PostRegister from './PostRegister'
 import PostLogin from './PostLogin'
 import Error from './Error'

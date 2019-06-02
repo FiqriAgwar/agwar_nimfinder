@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import Cookie from 'js-cookie'
 
 class GetData extends Component {
     constructor(props){
@@ -10,19 +11,23 @@ class GetData extends Component {
         query : "",
         size : 0,
         page : 0,
-        token : props.token,
-        codename : -1,
-        codeid : -1
+        token : 'token=' + this.props.token,
+        code : 0,
+        message : ''
       }
+
+      Cookie.set('token', this.state.token, {expires : 1});
     }
 
     checkNumber(input){
-      return (input == "1" || input == "2" || input == "3" || input == "4" || input == "5" || input == "6" || input == "7" || input == "8" || input == "9" || input == "0");
+      return (input === "1" || input === "2" || input === "3" || input === "4" || input === "5" || input === "6" || input === "7" || input === "8" || input === "9" || input === "0");
     }
 
     handleSubmit = (event) => {
       event.preventDefault();
-      this.state.load = false;
+      this.setState({load : false, message : ''});
+
+      console.log(this.state.token);
 
       let url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/'
 
@@ -41,22 +46,28 @@ class GetData extends Component {
         url += '&page=' + this.state.page
       }
 
-      const header = {
-        'Cookie' : 'token=' + this.state.token
-      }
+      const config = {
+        headers : {
+          'content-Type' : 'application/json',
+          'Access-Control-Allow-Origin' : true,
+          "Accept" : "/",
+          "Cache-Control" : "no-cache",
+          Cookie : document.cookie
+        },
+      };
 
-      axios.get(url, header)
-        .then(result => {
-            if(result.code >= 0){
-              this.setState(
-                {
-                  items : result.payload,
-                  load : true
-                }
-              )
-            }
-          }
-        )
+      console.log(url)
+
+      axios.get(url, config)
+      .then(result => {
+        console.log(result.data);
+        this.setState({
+          message : result.data.status,
+          code : result.data.code,
+          items : result.data.payload,
+          load : true
+        })
+      })
     }
   
     updateQuery(event){
@@ -64,7 +75,7 @@ class GetData extends Component {
     }
     
     render(){
-      var {load, items, query} = this.state;
+      var {load, items, code} = this.state;
   
       if(!load){
         return (
@@ -77,32 +88,38 @@ class GetData extends Component {
           </div>
         );
       }
-      else{ 
-        return (
-          <div className="titlesec">
-            <h1>NIM Finder</h1>
-  
-            <div className="search">
-              <input type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
-              <button onClick={this.handleSubmit}>Search</button>
-            </div>
+      else{
+        if(code >= 0){
+          return (
+            <div className="titlesec">
+              <h1>NIM Finder</h1>
+    
+              <div className="search">
+                <input type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                <button onClick={this.handleSubmit}>Search</button>
+              </div>
 
-            <div className="queryStyle">
-              <table>
-                <tr>
-                  {this.state.items.map(data => (
-                    <div>
-                      <td key={data.nim_jur}>{data.name}</td>
-                      <td key={data.nim_jur}>{data.nim_tpb}</td>
-                      <td key={data.nim_jur}>{data.nim_jur}</td>
-                      <td key={data.nim_jur}>{data.prodi}</td>
-                    </div>
-                  ))}
-                </tr>
-              </table>
+              <div className="queryStyle">
+                  <ul>
+                    {items.map(data => (
+                      <li key={data.nim_jur}>{data.name} | {data.nim_tpb} | {data.nim_jur} | {data.prodi}</li>
+                    ))}
+                  </ul>
+              </div>
             </div>
-          </div>
-        );
+          );
+        }
+        else{
+          return (
+            <div className = "titlesec">
+              <h1>NIM Finder</h1>
+
+              <div className = "queryStyle">
+                <p>Cannot Load Data</p>
+              </div>
+            </div>
+          )
+        }
       }
     }
   }

@@ -16,7 +16,7 @@ class PostRegister extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
 
-        this.state.message = 'Loading...';
+        this.setState({message : 'Loading'})
 
         const url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/register';
 

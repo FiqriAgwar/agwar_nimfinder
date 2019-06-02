@@ -19,7 +19,7 @@ class PostLogin extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
 
-        this.state.message = 'Loading...';
+        this.setState({message : 'Loading...'})
 
         const url = 'https://shrouded-cove-86222.herokuapp.com/https://api.stya.net/nim/login';
 
@@ -59,7 +59,7 @@ class PostLogin extends Component{
     render(){
         const {username, password} = this.state;
         
-        if(this.state.token == ''){
+        if(this.state.token === ''){
             return(
                 <div className ="titlesec">
                     <h2>
@@ -77,6 +77,10 @@ class PostLogin extends Component{
 
                         <p>
                             <button onClick={this.handleSubmit}>Login</button>
+                        </p>
+
+                        <p>
+                            {this.state.message}
                         </p>
 
                     </form>
