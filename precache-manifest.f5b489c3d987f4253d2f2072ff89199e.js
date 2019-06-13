@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eb7a1079dee41cc399072c6b68b67e6f",
+    "revision": "d784be186365316741aac7a43955621d",
     "url": "/agwar_nimfinder/index.html"
   },
   {
-    "revision": "e073a1794f8295723129",
+    "revision": "f2e6256c5d6d42b0e545",
     "url": "/agwar_nimfinder/static/css/main.a5f8a2d5.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/agwar_nimfinder/static/js/2.c4eefb01.chunk.js"
   },
   {
-    "revision": "e073a1794f8295723129",
-    "url": "/agwar_nimfinder/static/js/main.b8754356.chunk.js"
+    "revision": "f2e6256c5d6d42b0e545",
+    "url": "/agwar_nimfinder/static/js/main.81e33520.chunk.js"
   },
   {
     "revision": "3f991aa638ddd9cabc71",
