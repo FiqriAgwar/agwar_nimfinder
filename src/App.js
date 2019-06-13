@@ -16,10 +16,10 @@ class App extends Component {
             <img src = "https://github.com/SorrowInRain/agwar_nimfinder/blob/master/src/banner.png?raw=true"></img>
           </div>
           <Switch>
-            <Route path="/" exact component={GetData}/>
+            <Route path="/" component={GetData}/>
             <Route path="/register" exact component={PostRegister} />     
             <Route path="/login" exact component={PostLogin} />     
-            <Route component={Error} />
+            {/* <Route component={Error} /> */}
           </Switch>
         </div>
       </BrowserRouter>
