@@ -4,6 +4,7 @@ import './App.css';
 
 import PostRegister from './PostRegister'
 import PostLogin from './PostLogin'
+import GetData from './GetData'
 import Error from './Error'
 import Navigation from './Navigation'
 
@@ -23,8 +24,9 @@ class App extends Component {
         <div>
           <Navigation />
           <Switch>
-            <Route path="/" component={PostLogin} />
-            <Route path="/register" component={PostRegister} />     
+            <Route path="/" exact component={GetData}/>
+            <Route path="/register" exact component={PostRegister} />     
+            <Route path="/login" exact component={PostLogin} />     
             <Route component={Error} />
           </Switch>
         </div>

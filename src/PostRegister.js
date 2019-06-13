@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios';
 import qs from 'qs';
 
@@ -53,35 +54,45 @@ class PostRegister extends Component{
     
 
     render(){
-        const {username, password} = this.state;
-        return(
-            <div className ="titlesec">
-                <h2>
-                    Register
-                </h2>
+        const {username, password, code} = this.state;
+        if(code !== 0){
+            return(
+                <div className ="titlesec">
+                    <h2>
+                        Register
+                    </h2>
 
-                <form onSubmit={this.handleSubmit}>
-                    <p>
-                        <input type = 'text' placeholder = 'Username' value = {username} name = 'username' onChange={this.handleInputChange} />
-                    </p>
+                    <form onSubmit={this.handleSubmit}>
+                        <p>
+                            <input type = 'text' placeholder = 'Username' value = {username} name = 'username' onChange={this.handleInputChange} />
+                        </p>
 
-                    <p>
-                        <input type = 'password' placeholder = 'password' value = {password} name = 'password' onChange={this.handleInputChange} />
-                    </p>
+                        <p>
+                            <input type = 'password' placeholder = 'password' value = {password} name = 'password' onChange={this.handleInputChange} />
+                        </p>
 
-                    <p>
-                        <button onClick={this.handleSubmit}>Register</button>
-                    </p>
+                        <p>
+                            <button onClick={this.handleSubmit}>Register</button>
+                        </p>
 
-                    <br>
-                    </br>
+                        <br>
+                        </br>
 
-                    <p>
-                        {this.state.message}
-                    </p>
-                </form>
-            </div>
-        );
+                        <p>
+                            {this.state.message}
+                        </p>
+                    </form>
+                </div>
+            );
+        }
+        else{
+            return(
+                <Redirect to={{
+                    pathname : '/login',
+                    state : {username}
+                }}/>
+            );
+        }
     }
 }
 

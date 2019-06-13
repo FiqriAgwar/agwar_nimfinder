@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import Cookie from 'js-cookie'
 
@@ -11,10 +12,14 @@ class GetData extends Component {
         query : "",
         size : 0,
         page : 0,
-        token : this.props.token,
+        token : this.props.location.state.token,
         code : 0,
         message : ''
       }
+
+      console.log(props);
+
+      console.log(this.state.token === undefined);
 
       Cookie.set('token', this.state.token, {expires : 1});
     }
@@ -71,50 +76,60 @@ class GetData extends Component {
     }
     
     render(){
-      var {load, items, code} = this.state;
-  
-      if(!load){
-        return (
-          <div className="titlesec">
-            <h1>NIM Finder</h1>
-
-            <div className="queryStyle">
-              Loading Data...
-            </div>
-          </div>
-        );
+      var {load, items, code, token} = this.state;
+      
+      if(token === undefined){
+        console.log("Redirect");
+        return (<Redirect to= {{
+          pathname : '/login',
+          state : {message : 'invalid username or password.'}
+        }}
+        />);
       }
       else{
-        if(code >= 0){
+        if(!load){
           return (
             <div className="titlesec">
               <h1>NIM Finder</h1>
-    
-              <div className="search">
-                <input type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
-                <button onClick={this.handleSubmit}>Search</button>
-              </div>
 
               <div className="queryStyle">
-                  <ul>
-                    {items.map(data => (
-                      <li key={data.nim_jur}>{data.name} | {data.nim_tpb} | {data.nim_jur} | {data.prodi}</li>
-                    ))}
-                  </ul>
+                Loading Data...
               </div>
             </div>
           );
         }
         else{
-          return (
-            <div className = "titlesec">
-              <h1>NIM Finder</h1>
+          if(code >= 0){
+            return (
+              <div className="titlesec">
+                <h1>NIM Finder</h1>
+      
+                <div className="search">
+                  <input type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                  <button onClick={this.handleSubmit}>Search</button>
+                </div>
 
-              <div className = "queryStyle">
-                <p>Cannot Load Data</p>
+                <div className="queryStyle">
+                    <ul>
+                      {items.map(data => (
+                        <li key={data.nim_jur}>{data.name} | {data.nim_tpb} | {data.nim_jur} | {data.prodi}</li>
+                      ))}
+                    </ul>
+                </div>
               </div>
-            </div>
-          )
+            );
+          }
+          else{
+            return (
+              <div className = "titlesec">
+                <h1>NIM Finder</h1>
+
+                <div className = "queryStyle">
+                  <p>Cannot Load Data</p>
+                </div>
+              </div>
+            )
+          }
         }
       }
     }

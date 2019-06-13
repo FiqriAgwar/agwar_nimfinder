@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios';
 import qs from 'qs';
-
-import GetData from './GetData'
 
 class PostLogin extends Component{
     constructor(props){
@@ -57,9 +56,9 @@ class PostLogin extends Component{
     
 
     render(){
-        const {username, password} = this.state;
+        const {username, password, code, token, message} = this.state;
         
-        if(this.state.token === ''){
+        if(token === undefined || token === '' || code !== 0){
             return(
                 <div className ="titlesec">
                     <h2>
@@ -80,7 +79,7 @@ class PostLogin extends Component{
                         </p>
 
                         <p>
-                            {this.state.message}
+                            {message}
                         </p>
 
                     </form>
@@ -88,8 +87,12 @@ class PostLogin extends Component{
             );
         }
         else{
+            console.log(token);
             return(
-                <GetData token={this.state.token} />
+                <Redirect to={{
+                    pathname : '/',
+                    state : {token}
+                }}/>
             );
         }
     }
