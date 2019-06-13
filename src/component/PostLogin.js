@@ -11,7 +11,8 @@ class PostLogin extends Component{
             password : '',
             code : '',
             message : '',
-            token : ''
+            token : '',
+            linkToGo : null,
         }
     }
 
@@ -53,38 +54,50 @@ class PostLogin extends Component{
         });
     }
 
-    
+    handleClick = () => {
+        this.setState({linkToGo : "/register"});
+    }
 
     render(){
-        const {username, password, code, token, message} = this.state;
+        const {username, password, code, token, message, linkToGo} = this.state;
         
         if(token === undefined || token === '' || code !== 0){
-            return(
-                <div className ="titlesec">
-                    <h2>
-                        Login
-                    </h2>
+            if(linkToGo === null){    
+                return(
+                    <div className ="board">
+                        <h2>Login Dulu Ya</h2>
+                        <form onSubmit={this.handleSubmit}>
+                            <p>
+                                <input className="querybar" type = 'text' placeholder = 'Username' value = {username} name = 'username' onChange={this.handleInputChange} />
+                            </p>
 
-                    <form onSubmit={this.handleSubmit}>
-                        <p>
-                            <input type = 'text' placeholder = 'Username' value = {username} name = 'username' onChange={this.handleInputChange} />
-                        </p>
+                            <p>
+                                <input className="querybar" type = 'password' placeholder = 'password' value = {password} name = 'password' onChange={this.handleInputChange} />
+                            </p>
 
-                        <p>
-                            <input type = 'password' placeholder = 'password' value = {password} name = 'password' onChange={this.handleInputChange} />
-                        </p>
+                            <p>
+                                <button className="btnone" onClick={this.handleSubmit}>Login</button> 
+                            </p>
 
-                        <p>
-                            <button onClick={this.handleSubmit}>Login</button>
-                        </p>
+                            <p>
+                                atau Belum Punya Akun?
+                            </p>
 
-                        <p>
-                            {message}
-                        </p>
+                            <p>
+                                <button className="btntwo" onClick={this.handleClick}>Go To Register</button>
+                            </p>
 
-                    </form>
-                </div>
-            );
+                            <p>
+                                {message}
+                            </p>
+
+                        </form>
+                    </div>
+                );
+            }
+            else{
+                return (<Redirect to ={linkToGo} />)
+            }
         }
         else{
             console.log(token);

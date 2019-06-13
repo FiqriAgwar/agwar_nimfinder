@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom'
+import {Redirect, NavLink} from 'react-router-dom'
 import axios from 'axios'
 import Cookie from 'js-cookie'
+import DataTable from './DataTable'
 
 class GetData extends Component {
     constructor(props){
@@ -73,6 +74,14 @@ class GetData extends Component {
     updateQuery(event){
       this.setState({query : event.target.value});
     }
+
+    updateSize(event){
+      this.setState({size : event.target.value});
+    }
+
+    updatePage(event){
+      this.setState({page : event.target.value});
+    }
     
     render(){
       var {load, items, code, token, username} = this.state;
@@ -88,9 +97,16 @@ class GetData extends Component {
       else{
         if(!load){
           return (
+            
             <div className="titlesec">
-              <h1>NIM Finder</h1>
-              <h3>Hello, {username}</h3>
+              <div className="hello">Hello, {username}   |   <NavLink exact activeClassName="hello" to="/login">Logout</NavLink></div>
+
+              <div className="search">
+                  <input className="querybar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                  <input className="sizebar" type="text" name="size" placeholder="Masukkan Jumlah" onChange={this.updateSize.bind(this)} />
+                  <input className="pagebar" type="text" name="page" placeholder="Masukkan Halaman" onChange={this.updatePage.bind(this)} />
+                  <button className="btn" onClick={this.handleSubmit}>Search</button>
+                </div>
 
               <div className="queryStyle">
                 Loading Data...
@@ -102,28 +118,31 @@ class GetData extends Component {
           if(code >= 0){
             return (
               <div className="titlesec">
-                <h1>NIM Finder</h1>
-                <h3>Hello, {username}</h3>
+                <div className="hello">Hello, {username}   |   <NavLink exact activeClassName="hello" to="/login">Logout</NavLink></div>
       
                 <div className="search">
-                  <input className="searchbar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                  <input className="querybar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                  <input className="sizebar" type="text" name="size" placeholder="Masukkan Jumlah" onChange={this.updateSize.bind(this)} />
+                  <input className="pagebar" type="text" name="page" placeholder="Masukkan Halaman" onChange={this.updatePage.bind(this)} />
                   <button className="btn" onClick={this.handleSubmit}>Search</button>
                 </div>
 
-                <div className="queryStyle">
-                    <ul>
-                      {items.map(data => (
-                        <li key={data.nim_jur}>{data.name} | {data.nim_tpb} | {data.nim_jur} | {data.prodi}</li>
-                      ))}
-                    </ul>
-                </div>
+                  <DataTable data={items} />
               </div>
             );
           }
           else{
             return (
               <div className = "titlesec">
-                <h1>NIM Finder</h1>
+                <div className="hello">Hello, {username}   |   <NavLink exact activeClassName="hello" to="/login">Logout</NavLink></div>
+
+                <div className="search">
+                  <input className="querybar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                  <input className="sizebar" type="text" name="size" placeholder="Masukkan Jumlah" onChange={this.updateSize.bind(this)} />
+                  <input className="pagebar" type="text" name="page" placeholder="Masukkan Halaman" onChange={this.updatePage.bind(this)} />
+                  <button className="btn" onClick={this.handleSubmit}>Search</button>
+                </div>
+
 
                 <div className = "queryStyle">
                   <p>Cannot Load Data</p>

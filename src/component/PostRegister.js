@@ -10,7 +10,8 @@ class PostRegister extends Component{
             username : '',
             password : '',
             code : '',
-            message : ''
+            message : '',
+            linkToGo : null
         }
     }
 
@@ -51,39 +52,59 @@ class PostRegister extends Component{
         });
     }
 
-    
+    handleClick = () => {
+        this.setState({linkToGo : "/login"})
+    }
 
     render(){
-        const {username, password, code} = this.state;
+        const {username, password, code, linkToGo} = this.state;
         if(code !== 0){
-            return(
-                <div className ="titlesec">
-                    <h2>
-                        Register
-                    </h2>
+            if(linkToGo === null){
+                return(
+                    <div className ="board">
+                        <h2>
+                            Daftarkan Dirimu
+                        </h2>
 
-                    <form onSubmit={this.handleSubmit}>
-                        <p>
-                            <input type = 'text' placeholder = 'Username' value = {username} name = 'username' onChange={this.handleInputChange} />
-                        </p>
+                        <form onSubmit={this.handleSubmit}>
+                            <p>
+                                <input className="querybar" type = 'text' placeholder = 'Username' value = {username} name = 'username' onChange={this.handleInputChange} />
+                            </p>
 
-                        <p>
-                            <input type = 'password' placeholder = 'password' value = {password} name = 'password' onChange={this.handleInputChange} />
-                        </p>
+                            <p>
+                                <input className="querybar" type = 'password' placeholder = 'password' value = {password} name = 'password' onChange={this.handleInputChange} />
+                            </p>
 
-                        <p>
-                            <button onClick={this.handleSubmit}>Register</button>
-                        </p>
+                            <p>
+                                <button className="btnone" onClick={this.handleSubmit}>Register</button> 
+                            </p>
 
-                        <br>
-                        </br>
+                            <p>
+                                atau Sudah Punya Akun?
+                            </p>
 
-                        <p>
-                            {this.state.message}
-                        </p>
-                    </form>
-                </div>
-            );
+                            <p>
+                                <button className="btntwo" onClick={this.handleClick}>Go To Login</button>
+                            </p>
+
+                            <br>
+                            </br>
+
+                            <p>
+                                {this.state.message}
+                            </p>
+                        </form>
+                    </div>
+                );
+            }
+            else{
+                return(
+                    <Redirect to={{
+                        pathname : '/login',
+                        state : {username}
+                    }}/>
+                )
+            }
         }
         else{
             return(

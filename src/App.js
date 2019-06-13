@@ -13,7 +13,7 @@ class App extends Component {
       <BrowserRouter>
         <div className>
           <div className="banner">
-            <img src = "banner.png"></img>
+            <img src = "https://github.com/SorrowInRain/agwar_nimfinder/blob/master/src/banner.png?raw=true"></img>
           </div>
           <Switch>
             <Route path="/" exact component={GetData}/>

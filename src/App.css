@@ -5,12 +5,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: indigo;
+  background-color: #03011a;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h2{
+  color : paleturquoise;
+}
+
+.board{
+  font-size : 20px;
+  font-family : 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align : center;
+  background-color: rgb(76, 88, 155);
+  width : 50%;
+  height : 400px;
+  border : 3px;
+  border-color: black;
+  margin : 0 auto;
+  margin-top: 10%;
 }
 
 .titlesec{
@@ -20,13 +37,6 @@ code {
   color : white;
 }
 
-.queryStyle{
-  text-align: left;
-  text-indent: 2%;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  color : white;
-}
 
 .search{
   text-align: left;
@@ -36,6 +46,9 @@ code {
 .banner{
   text-align : center;
   margin : 3 px;
+  height : 100px;
+  width : 100%;
+  margin-bottom: 50px;
 }
 
 .btn{
@@ -54,8 +67,97 @@ code {
   color: white;
 }
 
-.searchbar{
-  height: 45px;
-  width: 500px;
+.btnone{
+  background-color: rgb(125, 211, 125);
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
   font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btnone:hover{
+  background-color: #0a7448;
+  color: white;
+}
+
+.btntwo{
+  background-color: rgb(115, 177, 228);
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btntwo:hover{
+  background-color: #1871bb;
+  color: white;
+}
+
+#container{
+  height: 100%;
+  width: 100%;
+  font-size : 0;
+}
+
+.hello{
+  height:30px;
+  width:100%;
+  background-color: midnightblue;
+  color : white;
+  text-align: right;
+  font-size:16px;
+  margin-right: 150 px;
+}
+
+NavLink{
+  color : white;
+}
+
+NavLink:visited{
+  color : white;
+}
+
+.querybar{
+  height: 45px;
+  width: 50%;
+  font-size: 16px;
+}
+
+.pagebar{
+  height: 45px;
+  width: 15%;
+  font-size: 16px;
+}
+
+.sizebar{
+  height: 45px;
+  width: 15%;
+  font-size: 16px;
+}
+
+table{
+  width:100%;
+}
+
+.tableheader{
+  width : 100%;
+  background-color: grey;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.tablebody{
+  width : 100%;
+  background-color: snow;
+  text-align: left;
+  color: black;
+  font-size:14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
