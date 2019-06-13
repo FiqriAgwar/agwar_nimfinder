@@ -17,9 +17,7 @@ class GetData extends Component {
         message : ''
       }
 
-      console.log(props);
-
-      console.log(this.state.token === undefined);
+      console.log(this.state.token);
 
       Cookie.set('token', this.state.token, {expires : 1});
     }
@@ -78,7 +76,7 @@ class GetData extends Component {
     render(){
       var {load, items, code, token} = this.state;
       
-      if(token === undefined){
+      if(token === undefined || token === ''){
         console.log("Redirect");
         return (<Redirect to= {{
           pathname : '/login',
