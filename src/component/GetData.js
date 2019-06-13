@@ -14,7 +14,8 @@ class GetData extends Component {
         page : 0,
         token : this.props.location.state.token,
         code : 0,
-        message : ''
+        message : '',
+        username : this.props.location.state.username
       }
 
       console.log(this.state.token);
@@ -74,7 +75,7 @@ class GetData extends Component {
     }
     
     render(){
-      var {load, items, code, token} = this.state;
+      var {load, items, code, token, username} = this.state;
       
       if(token === undefined || token === ''){
         console.log("Redirect");
@@ -89,6 +90,7 @@ class GetData extends Component {
           return (
             <div className="titlesec">
               <h1>NIM Finder</h1>
+              <h3>Hello, {username}</h3>
 
               <div className="queryStyle">
                 Loading Data...
@@ -101,10 +103,11 @@ class GetData extends Component {
             return (
               <div className="titlesec">
                 <h1>NIM Finder</h1>
+                <h3>Hello, {username}</h3>
       
                 <div className="search">
-                  <input type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
-                  <button onClick={this.handleSubmit}>Search</button>
+                  <input className="searchbar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
+                  <button className="btn" onClick={this.handleSubmit}>Search</button>
                 </div>
 
                 <div className="queryStyle">

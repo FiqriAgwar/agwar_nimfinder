@@ -91,7 +91,7 @@ class PostLogin extends Component{
             return(
                 <Redirect to={{
                     pathname : '/',
-                    state : {token}
+                    state : {token, username}
                 }}/>
             );
         }
