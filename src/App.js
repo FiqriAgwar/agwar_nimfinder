@@ -9,15 +9,6 @@ import Error from './Error'
 import Navigation from './Navigation'
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      current : 0,
-      cookie : '',
-      data : []
-    }
-  }
-
   render(){
     return (
       <BrowserRouter>
