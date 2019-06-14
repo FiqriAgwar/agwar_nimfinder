@@ -13,19 +13,24 @@ class GetData extends Component {
         query : "",
         size : 0,
         page : 0,
-        token : this.props.location.state.token,
+        token : null,
         code : 0,
         message : '',
-        username : this.props.location.state.username
+        username : null
       }
-
-      console.log(this.state.token);
 
       Cookie.set('token', this.state.token, {expires : 1});
     }
 
     checkNumber(input){
       return (input === "1" || input === "2" || input === "3" || input === "4" || input === "5" || input === "6" || input === "7" || input === "8" || input === "9" || input === "0");
+    }
+
+    componentWillMount(){
+      console.log(this.props.location.state)
+      if(this.props.location.state){
+        this.setState({token : this.props.location.state.token, username : this.props.location.state.username})
+      }
     }
 
     handleSubmit = (event) => {
@@ -86,20 +91,17 @@ class GetData extends Component {
     render(){
       var {load, items, code, token, username} = this.state;
       
-      if(token === undefined || token === ''){
+      if(token === undefined || token === null){
         console.log("Redirect");
-        return (<Redirect to= {{
-          pathname : '/login',
-          state : {message : 'invalid username or password.'}
-        }}
-        />);
+        this.setState({token : ''})
+        return (<Redirect to="/login" />);
       }
       else{
         if(!load){
           return (
             
             <div className="titlesec">
-              <div className="hello">Hello, {username}   |   <NavLink exact activeClassName="hello" to="/login">Logout</NavLink></div>
+              <div className="hello">Hello, {username}   |   <NavLink exact={true} activeClassName="hello" to="/login">Logout</NavLink></div>
 
               <div className="search">
                   <input className="querybar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
@@ -118,7 +120,7 @@ class GetData extends Component {
           if(code >= 0){
             return (
               <div className="titlesec">
-                <div className="hello">Hello, {username}   |   <NavLink exact activeClassName="hello" to="/login">Logout</NavLink></div>
+                <div className="hello">Hello, {username}   |   <NavLink exact={true} activeClassName="hello" to="/login">Logout</NavLink></div>
       
                 <div className="search">
                   <input className="querybar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />
@@ -134,7 +136,7 @@ class GetData extends Component {
           else{
             return (
               <div className = "titlesec">
-                <div className="hello">Hello, {username}   |   <NavLink exact activeClassName="hello" to="/login">Logout</NavLink></div>
+                <div className="hello">Hello, {username}   |   <NavLink exact={true} activeClassName="hello" to="/login">Logout</NavLink></div>
 
                 <div className="search">
                   <input className="querybar" type="text" name="query" placeholder="Masukkan Nama/NIM" onChange={this.updateQuery.bind(this)} />

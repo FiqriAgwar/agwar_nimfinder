@@ -10,16 +10,17 @@ import Error from './component/Error'
 class App extends Component {
   render(){
     return (
-      <BrowserRouter>
-        <div className>
+      <BrowserRouter basename="/agwar_nimfinder">
+        <div>
           <div className="banner">
             <img src = "https://github.com/SorrowInRain/agwar_nimfinder/blob/master/src/banner.png?raw=true"></img>
           </div>
           <Switch>
-            <Route path="/" component={GetData}/>
-            <Route path="/register" exact component={PostRegister} />     
-            <Route path="/login" exact component={PostLogin} />     
-            {/* <Route component={Error} /> */}
+            <Route path="/" exact component={GetData}/>
+            <Route path="/register" exact={true} component={PostRegister} />     
+            <Route path="/login" exact={true} component={PostLogin} />     
+            <Route path="/get" exact={true} component={GetData} />     
+            <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>

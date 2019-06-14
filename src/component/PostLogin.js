@@ -58,8 +58,14 @@ class PostLogin extends Component{
         this.setState({linkToGo : "/register"});
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(this.state.linkToGo !== prevState.linkToGo){
+            this.setState({linkToGo : null})
+        }
+    }
+
     render(){
-        const {username, password, code, token, message, linkToGo} = this.state;
+        let {username, password, code, token, message, linkToGo} = this.state;
         
         if(token === undefined || token === '' || code !== 0){
             if(linkToGo === null){    
@@ -96,14 +102,15 @@ class PostLogin extends Component{
                 );
             }
             else{
-                return (<Redirect to ={linkToGo} />)
+                return (<Redirect to ="/register" />)
             }
         }
         else{
             console.log(token);
+            this.setState({code : 1})
             return(
                 <Redirect to={{
-                    pathname : '/',
+                    pathname : '/get',
                     state : {token, username}
                 }}/>
             );

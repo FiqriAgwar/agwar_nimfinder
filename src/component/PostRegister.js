@@ -56,6 +56,12 @@ class PostRegister extends Component{
         this.setState({linkToGo : "/login"})
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(this.state.linkToGo !== prevState.linkToGo){
+            this.setState({linkToGo : null})
+        }
+    }
+
     render(){
         const {username, password, code, linkToGo} = this.state;
         if(code !== 0){
