@@ -93,7 +93,7 @@ class PostLogin extends Component{
                                 <button className="btntwo" onClick={this.handleClick}>Go To Register</button>
                             </p>
 
-                            <p>
+                            <p className="message">
                                 {message}
                             </p>
 
