@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+App Name	: Agwar's NIM Finder
+Creator		: Aliffiqri Agwar - 13517107
 
-## Available Scripts
+## How To Run
+* Go to [Agwar's NIM Finder](https://sorrowinrain.github.io/agwar_nimfinder/)
+* It will redirect you to [Login Page](https://sorrowinrain.github.io/agwar_nimfinder/login)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/login.png?raw=true | width=100)
+* If you don't have any account to continue, you can go to [Register Page](https://sorrowinrain.github.io/agwar_nimfinder/register)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/register.png?raw=true ! width=100)
+* After you login, you will get the page like this
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get.png?raw=true | width=100)
+* You can insert two types of query. NIM of the student or name of the student. Query with NIM is like shown
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-nim.png?raw=true | width=100)
+* If you press search button, it will loading for a while. Getting the data from the server
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-loading.png?raw=true | width=100)
+* The result is like shown
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result.png?raw=true | width=100)
+* You can expand the size limit for the data. You can fill it like shown.
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result-size.png?raw=true | width=100)
+* Also, you can go to another page of the data. Default is 0.
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result=page.png?raw=true | width=100)
 
-In the project directory, you can run:
+## Library
+1. ReactJS for the main program and building. [Source](https://reactjs.org/)
+2. Axios for get and post request. [Source](https://www.npmjs.com/package/axios)
+3. Querystringify for post request. [Source](https://www.npmjs.com/package/querystringify)
+4. JS-Cookie for cookie handler. [Source](https://www.npmjs.com/package/js-cookie)
 
-### `npm start`
+## Review for Application
+#### Disadvantages :
+1. There is a bug that you can't go to directly to https://sorrowinrain.github.io/agwar_nimfinder/login or https://sorrowinrain.github.io/agwar_nimfinder/register or https://sorrowinrain.github.io/agwar_nimfinder/get. It will return 404. You must go to https://sorrowinrain.github.io/agwar_nimfinder/ for auto-redirect go to https://sorrowinrain.github.io/agwar_nimfinder/login
+2. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## How It Works and How It Designed?
+TBD
