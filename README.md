@@ -5,21 +5,21 @@ Creator		: Aliffiqri Agwar - 13517107
 ## How To Run
 * Go to [Agwar's NIM Finder](https://sorrowinrain.github.io/agwar_nimfinder/)
 * It will redirect you to [Login Page](https://sorrowinrain.github.io/agwar_nimfinder/login)
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/login.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/login.png?raw=true)
 * If you don't have any account to continue, you can go to [Register Page](https://sorrowinrain.github.io/agwar_nimfinder/register)
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/register.png?raw=true ! width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/register.png?raw=true)
 * After you login, you will get the page like this
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get.png?raw=true)
 * You can insert two types of query. NIM of the student or name of the student. Query with NIM is like shown
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-nim.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-nim.png?raw=true)
 * If you press search button, it will loading for a while. Getting the data from the server
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-loading.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-loading.png?raw=true)
 * The result is like shown
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result.png?raw=true)
 * You can expand the size limit for the data. You can fill it like shown.
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result-size.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result-size.png?raw=true)
 * Also, you can go to another page of the data. Default is 0.
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result=page.png?raw=true | width=100)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result=page.png?raw=true)
 
 ## Library
 1. ReactJS for the main program and building. [Source](https://reactjs.org/)
