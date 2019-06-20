@@ -32,5 +32,20 @@ Creator		: Aliffiqri Agwar - 13517107
 1. There is a bug that you can't go to directly to https://sorrowinrain.github.io/agwar_nimfinder/login or https://sorrowinrain.github.io/agwar_nimfinder/register or https://sorrowinrain.github.io/agwar_nimfinder/get. It will return 404. You must go to https://sorrowinrain.github.io/agwar_nimfinder/ for auto-redirect go to https://sorrowinrain.github.io/agwar_nimfinder/login
 2. 
 
-## How It Works and How It Designed?
-TBD
+## How It Designed?
+It uses [Strategy Pattern](https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm) for the design. So the application has 3 main classes :
+1. PostRegister for viewing Register Page and Excecuting Post Request in Register from the API.
+2. PostLogin for viewing Login Page and Excecuting Post Request in Login from the API.
+3. GetData for viewing Get Page and Excecuting Get Request by sending query to the API.
+
+So when the user input the query to the app, it will be seperated by the website that the user choose.
+
+## How It Works?
+1. Register Page
+When username and password has inputted, the application sent POST request with axios to the API. The response from API, will be viewed to the website.
+
+2. Login Page
+When username and password has inputted, the application sent POST request with axios to the API. The response from API is variative. If the password and username didn't match, it won't do anything but sending error message to the user and offer them to input the data again. If the password and username match, the application will save the cookie on browser and redirect to the Get Page.
+
+3. Get Page
+The query from the user will be requested with GET method with axios to the API. The response presentated to the browser.
