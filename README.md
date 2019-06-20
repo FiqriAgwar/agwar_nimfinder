@@ -19,7 +19,7 @@ Creator		: Aliffiqri Agwar - 13517107
 * You can expand the size limit for the data. You can fill it like shown.
 ![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result-size.png?raw=true)
 * Also, you can go to another page of the data. Default is 0.
-![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result=page.png?raw=true)
+![](https://github.com/SorrowInRain/agwar_nimfinder/blob/master/screenshot/get-result-page.png?raw=true)
 
 ## Library
 1. ReactJS for the main program and building. [Source](https://reactjs.org/)
