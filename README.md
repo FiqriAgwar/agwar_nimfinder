@@ -27,10 +27,15 @@ Creator		: Aliffiqri Agwar - 13517107
 3. Querystringify for post request. [Source](https://www.npmjs.com/package/querystringify)
 4. JS-Cookie for cookie handler. [Source](https://www.npmjs.com/package/js-cookie)
 
-## Review for Application
-#### Disadvantages :
-1. There is a bug that you can't go to directly to https://sorrowinrain.github.io/agwar_nimfinder/login or https://sorrowinrain.github.io/agwar_nimfinder/register or https://sorrowinrain.github.io/agwar_nimfinder/get. It will return 404. You must go to https://sorrowinrain.github.io/agwar_nimfinder/ for auto-redirect go to https://sorrowinrain.github.io/agwar_nimfinder/login
-2. 
+## Review for API
+### Advantages :
+The API is very good at POST request. The message is very easy to read and maintain the view of this application.
+
+### Disadvantages :
+The API maybe better if the response from GET request contain the total data that match from the query. For example :
+Query : "Alif"
+Response : "Code : 10, Data : "...", Message : "OK", resultFound : 183"
+With this format, my Application can make a better view for the page query on GetData class (so, the user doesn't have to input the number manually)
 
 ## How It Designed?
 It uses [Strategy Pattern](https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm) for the design. So the application has 3 main classes :
